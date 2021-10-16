@@ -4,6 +4,8 @@ var Intern = require("./library/Intern");
 var inquirer = require("inquirer");
 var fs = require("fs");
 var managerList = [];
+var internList = [];
+var engineerList = [];
 
 function createChoices() {
   inquirer
@@ -66,6 +68,43 @@ function addManager() {
       );
       managerList.push(teamManager);
       console.log(managerList);
+      createsChoices();
+    });
+}
+function addIntern() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "employeename",
+        message: "enter employee name",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "enter employee id",
+      },
+      {
+        type: "input",
+        name: "employeeemail",
+        message: "enter employee email",
+      },
+      {
+        type: "input",
+        name: "schoolName",
+        message: "enter your schools name",
+      },
+    ])
+    .then(({ employeename, id, employeeemail, schoolName }) => {
+      const teamIntern = new Intern(
+        employeename,
+        id,
+        employeeemail,
+        schoolName
+      );
+      internList.push(teamIntern);
+      console.log(internList);
+      createChoices();
     });
 }
 createChoices();
