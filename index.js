@@ -3,6 +3,7 @@ var Engineer = require("./library/Engineer");
 var Intern = require("./library/Intern");
 var inquirer = require("inquirer");
 var fs = require("fs");
+var managerList = [];
 
 function createChoices() {
   inquirer
@@ -57,6 +58,14 @@ function addManager() {
     ])
     .then(({ employeename, id, employeeemail, officeNumber }) => {
       console.log("Man");
+      const teamManager = new Manager(
+        employeename,
+        id,
+        employeeemail,
+        officeNumber
+      );
+      managerList.push(teamManager);
+      console.log(managerList);
     });
 }
 createChoices();
