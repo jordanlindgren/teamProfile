@@ -4,7 +4,8 @@
   "description": "object oriented programming",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*",
+    "start":"node server.js"
   },
   "repository": {
     "type": "git",
